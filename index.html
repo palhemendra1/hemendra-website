@@ -1,270 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemendra Pal | Academic Leader & Data Science Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #63b3ed;
+            --bg-light: #f7fafc;
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
 
-<title>Hemendra Pal | Founder ALTREICH THINKTANK and Founder and CEO AINexForge</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-<style>
-:root {
---primary:#0f172a;
---accent:#0ea5e9;
---text-main:#334155;
---text-light:#64748b;
---bg-body:#f8fafc;
---bg-card:#ffffff;
---shadow:0 10px 15px rgba(0,0,0,0.1);
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
 
-body {
-font-family:'Inter',sans-serif;
-background:var(--bg-body);
-color:var(--text-main);
-margin:0;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-header {
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-text-align:center;
-padding:80px 20px;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.profile-img {
-width:160px;
-border-radius:50%;
-margin-bottom:15px;
-}
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-.container {
-max-width:1200px;
-margin:-40px auto;
-display:grid;
-grid-template-columns:1fr 2fr;
-gap:30px;
-padding:20px;
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #2a4365 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 10%;
+            margin-bottom: 4rem;
+        }
 
-.card {
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:var(--shadow);
-}
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
 
-.section-title {
-margin-bottom:15px;
-border-bottom:1px solid #eee;
-padding-bottom:10px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
 
-.timeline-item {
-margin-bottom:20px;
-border-left:2px solid #ddd;
-padding-left:20px;
-}
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
 
-.timeline-date {
-color:var(--accent);
-font-size:0.85rem;
-font-weight:bold;
-}
+        .contact-pill {
+            display: inline-flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
 
-footer {
-background:#0f172a;
-color:white;
-text-align:center;
-padding:40px;
-margin-top:40px;
-}
-</style>
+        .contact-pill a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Content Scaffolding */
+        section {
+            padding: 5rem 10%;
+        }
+
+        h2.section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* Experience & Education Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills Chips */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: var(--white);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Publications List */
+        .pub-item {
+            padding: 1.5rem;
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .pub-item:hover {
+            background: #edf2f7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 10% 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 3rem 5%; }
+            .hero { padding: 0 5%; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<img src="HEMENDRA_PAL.jpg" class="profile-img" alt="Hemendra Pal">
-<h1>Hemendra Pal</h1>
-<p>Founder ALTREICH THINKTANK (A.T.) | Founder & CEO AINexForge</p>
-</header>
+    <nav>
+        <a href="#" class="logo">HP.</a>
+        <ul class="nav-links">
+            <li><a href="#about">Objective</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
 
-<div class="container">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Hemendra Pal</h1>
+            <p>Visionary Academic Leader | Expertise in Management, Engineering & Data Science</p>
+            <div class="contact-pill">
+                <a href="mailto:hpal00001@gmail.com">📧 hpal00001@gmail.com</a>
+                <a href="tel:+919310260181">📞 +91-9310-260-181</a>
+                <span>📍 Ghaziabad, INDIA</span>
+            </div>
+        </div>
+    </header>
 
-<!-- LEFT -->
-<aside>
+    <section id="about">
+        <h2 class="section-title">Objective</h2>
+        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px;">
+            Strategic-minded professional seeking a senior leadership role to utilize academic background and expertise in Management, AI, Operations, and Analytics. Passionate about institutional excellence and innovative programs in supply chain management and strategy.
+        </p>
+    </section>
 
-<div class="card">
-<h3 class="section-title">Contact</h3>
-<p>Email: hpal00001@gmail.com</p>
-<p>Phone: +91-9310260181</p>
-<p>Location: India / Tbilisi</p>
-</div>
+    <section id="experience" style="background: #f1f5f9;">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="meta">2015 – Present</span>
+                <h4>Senior Director & Founder</h4>
+                <p><strong>Altreich Thinktank</strong> (India / Georgia)</p>
+                <ul>
+                    <li>Led cross-jurisdictional advocacy grounded in human rights frameworks.</li>
+                    <li>Integrated intersectionality-informed analysis into policy design.</li>
+                    <li>Developed institutional inclusion strategies for global participation.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="meta">2013 – 2014</span>
+                <h4>Assistant Professor</h4>
+                <p><strong>Sri Sri University</strong></p>
+                <ul>
+                    <li>Founder & Interim HoD - Department of Entrepreneurship.</li>
+                    <li>Taught Operations Management, Finance, and Manufacturing Strategies.</li>
+                    <li>Mentored MBA Capstone Projects and Industry collaborations.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="meta">2007</span>
+                <h4>Supply Chain Analyst</h4>
+                <p><strong>Sysco Corp., Texas, USA</strong></p>
+                <ul>
+                    <li>Strategic guidance on North American expansions.</li>
+                    <li>Utilized industrial engineering for supply chain optimization.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="meta">2004 – 2007</span>
+                <h4>Product Manager</h4>
+                <p><strong>StarPipe, USA</strong></p>
+                <ul>
+                    <li>Managed product lines with budget exceeding $12M/Year.</li>
+                    <li>Implemented new forecasting models reducing inventory by 10%.</li>
+                    <li>Increased customer satisfaction from 88% to 97%.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3 class="section-title">Skills</h3>
-<ul>
-<li>Python, SQL, SPSS, MATLAB</li>
-<li>Machine Learning (Pandas, Scikit-learn, Numpy)</li>
-<li>Supply Chain Analytics</li>
-<li>ERP / MRP Systems (CAPS, INFOR, PC Miler)</li>
-<li>Strategic Management & Policy Analysis</li>
-</ul>
-</div>
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="meta">2009 – 2010</span>
+                <h4>MBA International Management</h4>
+                <p>Royal Holloway, University of London, UK</p>
+                <p><small>Merit | GPA: 3.75/4.0</small></p>
+            </div>
+            <div class="card">
+                <span class="meta">2001 – 2003</span>
+                <h4>M.Sc. Mechanical Engineering</h4>
+                <p>Texas A&M University, USA</p>
+                <p><small>GPA: 3.33/4.0</small></p>
+            </div>
+            <div class="card">
+                <span class="meta">1996 – 2000</span>
+                <h4>B.E. Mechanical Engineering</h4>
+                <p>MNNIT, Allahabad, India</p>
+                <p><small>Score: 80.42% | GPA: 4.0/4.0</small></p>
+            </div>
+            <div class="card">
+                <span class="meta">2012</span>
+                <h4>FDP in Management</h4>
+                <p>Indian Institute of Management (IIMA), India</p>
+                <p><small>Teaching and Research Focus</small></p>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3 class="section-title">Certifications</h3>
-<ul>
-<li>AI for Business – University of Pennsylvania</li>
-<li>AI for Product Management – Duke University</li>
-<li>DeepLearning.AI – Stanford</li>
-<li>Supply Chain Data Analyst – Unilever</li>
-<li>Harvard Humanitarian Initiative (2021)</li>
-<li>Data Science Ethics – University of Michigan</li>
-</ul>
-</div>
+    <section id="research" style="background: #f1f5f9;">
+        <h2 class="section-title">Research & Publications</h2>
+        <div class="pub-item">
+            <strong>Modeling the Dynamic Effects of Tariffs on Economic Variables.</strong>
+            <p><small>Future Business Journal (Springer), 2025</small></p>
+        </div>
+        <div class="pub-item">
+            <strong>Adoption of AI and Machine Learning: A Strategic Framework Approach.</strong>
+            <p><small>International Journal of Economics & Management Sciences, 2024</small></p>
+        </div>
+        <div class="pub-item">
+            <strong>Impact of Russia-Ukraine War on Commodity Pricing.</strong>
+            <p><small>Elsevier SSRN, 2023</small></p>
+        </div>
+        <div class="pub-item">
+            <strong>Unpacking Trump’s Executive Power Play.</strong>
+            <p><small>Library of Congress Control #1-15061606981 (Non-Fiction), 2025</small></p>
+        </div>
+    </section>
 
-<div class="card">
-<h3 class="section-title">Languages</h3>
-<p>English (Fluent), Hindi (Native), French (Basic)</p>
-</div>
+    <section id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Python & Data Science</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">MATLAB / Simulink</span>
+            <span class="skill-tag">Big Data & SQL</span>
+            <span class="skill-tag">ERP / MRP Systems</span>
+            <span class="skill-tag">Strategic Supply Chain</span>
+            <span class="skill-tag">Operations Management</span>
+            <span class="skill-tag">Predictive Analytics</span>
+            <span class="skill-tag">SPSS & Scikit-learn</span>
+            <span class="skill-tag">Business Objects</span>
+        </div>
+    </section>
 
-</aside>
+    <section id="awards">
+        <h2 class="section-title">Awards & Honors</h2>
+        <div class="grid">
+            <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                <p>🏆 <strong>International Excellence Scholarship</strong> - Royal Holloway London</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                <p>🏆 <strong>Leadership Award</strong> - Post Hurricane Katrina Relief, Houston TX</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                <p>🏆 <strong>Topper Merit Scholarship</strong> - REC Allahabad</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                <p>🏆 <strong>Mechanical Engineering Merit</strong> - Texas A&M University</p>
+            </div>
+        </div>
+    </section>
 
-<!-- RIGHT -->
-<main>
+    <footer>
+        <div class="footer-links">
+            <a href="#" style="color: white">LinkedIn</a>
+            <a href="#" style="color: white">ResearchGate</a>
+            <a href="mailto:hpal00001@gmail.com" style="color: white">Contact</a>
+        </div>
+        <p>Hemendra Pal | D/G 004 Moti Residency, Raj Nagar Extn, Ghaziabad, INDIA</p>
+        <div class="copyright">
+            © 2026 AINexForge. All rights reserved.
+        </div>
+    </footer>
 
-<div class="card">
-<h3 class="section-title">Objective</h3>
-<p>
-Visionary academic leader with expertise in management, engineering, data science, and AI. 
-Focused on strategic initiatives, academic excellence, and innovation in operations, strategy, and analytics.
-</p>
-</div>
+    <script>
+        // Simple scroll reveal
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                if (top < window.innerHeight * 0.8) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
 
-<div class="card">
-<h3 class="section-title">Experience</h3>
-
-<div class="timeline-item">
-<div class="timeline-date">Aug 2015 – Present</div>
-<h4>Founder & Sr. Director – ALTREICH THINKTANK</h4>
-<p>Led global policy, governance, and human-rights-based strategic initiatives. Designed inclusion frameworks, conducted executive workshops, and implemented KPI-based institutional systems.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Sept 2014 – Dec 2014</div>
-<h4>Deputy Project Manager – IIT Gandhinagar</h4>
-<p>Managed TEQIP strategic communication and institutional programs.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">July 2013 – Feb 2014</div>
-<h4>Assistant Professor – Sri Sri University</h4>
-<p>Taught Operations, Finance, and Entrepreneurship. Founded Department of Entrepreneurship.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Jan 2013 – July 2013</div>
-<h4>Assistant Professor – IILM Graduate School of Management</h4>
-<p>Delivered Operations Management lectures and supervised PGDM projects.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Apr 2007 – Dec 2007</div>
-<h4>Supply Chain Analyst – Sysco Corporation</h4>
-<p>Provided strategic modeling for supply chain expansion across North America.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Oct 2004 – Apr 2007</div>
-<h4>Industrial Engineer / Product Manager – StarPipe</h4>
-<p>Managed $12M+ product lines, improved forecasting accuracy, and reduced inventory costs by 10%.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Feb 2004 – Aug 2004</div>
-<h4>Research Assistant – Texas A&M University</h4>
-<p>Coordinated mental health research and data systems.</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-date">Jun 2000 – Jul 2001</div>
-<h4>Technical Management Trainee – Xerox India</h4>
-<p>Completed manufacturing and operations rotations.</p>
-</div>
-
-</div>
-
-<div class="card">
-<h3 class="section-title">Education</h3>
-<ul>
-<li>MBA – Royal Holloway, University of London (2009–2010)</li>
-<li>M.S. Mechanical Engineering – Texas A&M University</li>
-<li>B.E. Mechanical – MNNIT Allahabad</li>
-<li>FDP – IIM Ahmedabad</li>
-</ul>
-</div>
-
-<div class="card">
-<h3 class="section-title">Books & Major Works</h3>
-<ul>
-<li><a href="https://www.britishrajashes.org/" target="_blank">The Ashes of British Raj (2025)</a></li>
-<li><a href="https://executiveanalysis2025.org/" target="_blank">Executive Analysis 2025</a></li>
-<li>Financial Risk Management (Work in Progress)</li>
-</ul>
-</div>
-
-<div class="card">
-<h3 class="section-title">Research Publications</h3>
-<ul>
-<li>Tariff Modeling – Future Business Journal (2025)</li>
-<li>DDE Economic Modeling – MPRA (2025)</li>
-<li>AI Adoption Framework – IJEMS (2024)</li>
-<li>Russia-Ukraine Commodity Pricing Studies</li>
-</ul>
-</div>
-
-<div class="card">
-<h3 class="section-title">Awards</h3>
-<ul>
-<li>International Excellence Scholarship (2009)</li>
-<li>Leadership Award – Hurricane Katrina (2005)</li>
-<li>Topper Merit Scholarship – MNNIT</li>
-<li>Texas A&M Merit Scholarship</li>
-</ul>
-</div>
-
-<div class="card">
-<h3 class="section-title">Affiliations</h3>
-<ul>
-<li>AMBA Lifetime Member</li>
-<li>Alumni – IIM Ahmedabad</li>
-<li>Alumni – Texas A&M University</li>
-<li>Volunteer – Oxfam, British Heart Foundation</li>
-</ul>
-</div>
-
-<div class="card">
-<h3 class="section-title">Projects</h3>
-<ul>
-<li>Solar PV Analysis (2022)</li>
-<li>Heart Disease Prediction (Machine Learning)</li>
-</ul>
-</div>
-
-</main>
-
-</div>
-
-<footer>
-<p>© 2026 Hemendra Pal | AINexForge</p>
-</footer>
-
+        // Initialize sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+        });
+        
+        // Initial trigger
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 </html>
