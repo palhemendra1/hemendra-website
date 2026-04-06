@@ -33,7 +33,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -76,7 +75,6 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, var(--primary) 0%, #2a4365 100%);
@@ -127,7 +125,6 @@
             gap: 0.5rem;
         }
 
-        /* Main Content Scaffolding */
         section {
             padding: 5rem 10%;
         }
@@ -150,7 +147,37 @@
             background: var(--accent);
         }
 
-        /* Experience & Education Cards */
+        .objective-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .objective-text {
+            flex: 1 1 60%;
+            max-width: 800px;
+        }
+
+        .objective-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .objective-image {
+            flex: 0 0 320px;
+            margin-left: auto;
+        }
+
+        .objective-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -204,7 +231,6 @@
             color: var(--accent);
         }
 
-        /* Skills Chips */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -228,7 +254,6 @@
             color: var(--white);
         }
 
-        /* Publications List */
         .pub-item {
             padding: 1.5rem;
             background: var(--white);
@@ -242,7 +267,6 @@
             background: #edf2f7;
         }
 
-        /* Footer */
         footer {
             background: var(--primary);
             color: var(--white);
@@ -265,18 +289,39 @@
             padding-top: 2rem;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            section { padding: 3rem 5%; }
-            .hero { padding: 0 5%; }
-            .hero h1 { font-size: 2.5rem; }
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .hero {
+                padding: 0 5%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .objective-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .objective-image {
+                flex: 1 1 auto;
+                width: 100%;
+                max-width: 360px;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -305,11 +350,17 @@
         </div>
     </header>
 
-    <section id="about">
-        <h2 class="section-title">Objective</h2>
-        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px;">
-            Strategic-minded professional with an academic background and expertise in Management, AI, Operations, and Analytics. Passionate about institutional excellence and innovative programs in supply chain management and strategy.
-        </p>
+    <section id="about" class="objective-wrap">
+        <div class="objective-text">
+            <h2 class="section-title">Objective</h2>
+            <p>
+                Strategic-minded professional with an academic background and expertise in Management, AI, Operations, and Analytics. Passionate about institutional excellence and innovative programs in supply chain management and strategy.
+            </p>
+        </div>
+
+        <div class="objective-image">
+            <img src="images/hemendra-profile.jpg" alt="Hemendra Pal profile image" width="320" height="400">
+        </div>
     </section>
 
     <section id="experience" style="background: #f1f5f9;">
@@ -335,7 +386,7 @@
                     <li>Mentored MBA Capstone Projects and Industry collaborations.</li>
                 </ul>
             </div>
-              <div class="card">
+            <div class="card">
                 <span class="meta">2013 – 2013</span>
                 <h4>Assistant Professor</h4>
                 <p><strong>IILM Graduate School/College of Management</strong></p>
@@ -363,7 +414,7 @@
                     <li>Increased customer satisfaction from 88% to 97%.</li>
                 </ul>
             </div>
-              <div class="card">
+            <div class="card">
                 <span class="meta">2004 – 2004</span>
                 <h4>Full Time Reseaerch Assistant</h4>
                 <p><strong>School of Rural Public Health - Texas A&M</strong></p>
@@ -373,7 +424,7 @@
                     <li>Supervisor - Dr. Ming Tai Seale.</li>
                 </ul>
             </div>
-              <div class="card">
+            <div class="card">
                 <span class="meta">2000-2001</span>
                 <h4>Technical Management Trainee</h4>
                 <p><strong>XEROX-India</strong></p>
@@ -481,7 +532,6 @@
     </footer>
 
     <script>
-        // Simple scroll reveal
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => {
@@ -493,14 +543,12 @@
             });
         });
 
-        // Initialize sections for animation
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
             section.style.transition = 'all 0.8s ease-out';
         });
-        
-        // Initial trigger
+
         window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
